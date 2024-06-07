@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimaisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/hello', function (){
-    return view('hello');
-});
 
-Route::get('/hello/{nome}', function ($nome){
-    return "Hello {$nome}";
-});
+Route::get('/animais', 
+[AnimaisController::class, 'index'])
+->name('animais');
+
+Route::get('/animais/cadastrar',
+[AnimaisController::class, 'cadastrar'])
+->name('animais.cadastrar');
+
+Route::post('/animais/cadastrar',
+[AnimaisController::class, 'gravar'])
+->name('animais.cadastrar');
