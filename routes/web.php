@@ -28,4 +28,4 @@ Route::get('/animais/cadastrar',
 
 Route::post('/animais/cadastrar',
 [AnimaisController::class, 'gravar'])
-->name('animais.cadastrar');
+->name('animais.gravar');

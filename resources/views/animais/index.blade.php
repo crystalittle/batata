@@ -2,7 +2,7 @@
 
 @extends('base')
 
-@section('titulo', 'Animais para adoação')
+@section('titulo', 'Animais para adoção')
 
 @section('conteudo')
 <p>
