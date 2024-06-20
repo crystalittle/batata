@@ -29,3 +29,9 @@ Route::get('/animais/cadastrar',
 Route::post('/animais/cadastrar',
 [AnimaisController::class, 'gravar'])
 ->name('animais.gravar');
+
+Route::get('/animais/apagar/{animal}',
+[AnimaisController::class, 'apagar'])->name('animais.apagar');
+
+Route::delete('/animais/apagar/{animal}',
+[AnimaisController::class, 'apagar']);
