@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnimaisController;
+use App\Http\Controllers\JogosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,25 @@ Route::get('/animais/apagar/{animal}',
 
 Route::delete('/animais/apagar/{animal}',
 [AnimaisController::class, 'apagar']);
+
+Route::get('/animais/editar/{animal}', [AnimaisController::class, 'editar'])->name('animais.editar');
+
+Route::put('/animais/editar/{animal}', [AnimaisController::class, 'editarGravar']);
+
+Route::get('/jogos',
+[JogosController::class, 'index'])
+->name('jogos');
+
+Route::get('/jogos/cadastrar',
+[JogosController::class, 'cadastrar'])
+->name('jogos.cadastrar');
+
+Route::post('/jogos/cadastrar',
+[JogosController::class, 'gravar'])
+->name('jogos.gravar');
+
+Route::get('/jogos/apagar/{jogo}',
+[jogoController::class, 'apagar'])->name('jogos.apagar');
+
+Route::delete('/jogos/apagar/{jogo}',
+[JogosController::class, 'apagar']);
