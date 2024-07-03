@@ -35,7 +35,7 @@ Route::get('/animais/apagar/{animal}',
 [AnimaisController::class, 'apagar'])->name('animais.apagar');
 
 Route::delete('/animais/apagar/{animal}',
-[AnimaisController::class, 'apagar']);
+[AnimaisController::class, 'deletar']);
 
 Route::get('/animais/editar/{animal}', [AnimaisController::class, 'editar'])->name('animais.editar');
 
