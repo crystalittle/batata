@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimaisController;
 use App\Http\Controllers\JogosController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('iniciar');
+}) -> name('index');
 
 Route::get('/animais', 
 [AnimaisController::class, 'index'])
@@ -58,3 +59,17 @@ Route::get('/jogos/apagar/{jogo}',
 
 Route::delete('/jogos/apagar/{jogo}',
 [JogosController::class, 'apagar']);
+
+Route::get('/usuarios', 
+[UsuariosController::class, 'index'])
+->name('usuarios');
+
+Route::get('/usuarios/cadastrar', 
+[UsuariosController::class, 'cadastrar'])
+->name('usuarios.cadastrar');
+
+Route::post('/usuarios/gravar', 
+[UsuariosController::class, 'gravar'])
+->name('usuarios.gravar');
+
+Route::put('/usuarios/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
