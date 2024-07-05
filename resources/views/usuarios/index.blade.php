@@ -20,6 +20,10 @@
     <tr>
         <td>{{ $usuario['nome'] }}</td>
         <td>{{ $usuario['email'] }}</td>
+        <td>{{ $usuario['password'] }}</td>
+        <td>{{ $usuario['username'] }}</td>
+        <td>{{ $usuario['admin'] }}</td>
+        <td><a href="{{ route('usuarios.editar', $usuario['id']) }}">Editar</a></td>
         {{-- <td><a href="{{ route('usuario.editar', $animal['id']) }}">Editar</a></td>
         <td><a href="{{ route('animais.apagar', $animal['id']) }}">Apagar</a></td> --}}
     </tr>

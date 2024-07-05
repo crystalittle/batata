@@ -72,4 +72,6 @@ Route::post('/usuarios/gravar',
 [UsuariosController::class, 'gravar'])
 ->name('usuarios.gravar');
 
+Route::get('/usuarios/editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
+
 Route::put('/usuarios/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
