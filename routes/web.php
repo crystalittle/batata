@@ -75,3 +75,17 @@ Route::post('/usuarios/gravar',
 Route::get('/usuarios/editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
 
 Route::put('/usuarios/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
+
+Route::get('/usuarios/apagar/{usuario}',
+[UsuariosController::class, 'apagar'])->name('usuarios.apagar');
+
+Route::delete('/usuarios/apagar/{usuario}',
+[UsuariosController::class, 'deletar']);
+
+
+
+Route::get('login', [UsuariosController::class, 'login'])->name('login');
+
+Route::post('login', [UsuariosController::class, 'login'])->name('login');
+
+Route::get('logout', [UsuariosController::class, 'logout'])->name('logout');

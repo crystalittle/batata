@@ -35,6 +35,25 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios');
    }
 
+   public function login(Request $form){
+       if($form->isMethod('POST')){
+        dd($form);
+       }
+        return view('usuarios.login');
+   }
+
+   public function logout(){
+
+   }
+
+
+    public function apagar(Usuarios $usuario){
+        return view('usuarios.apagar', [
+            'usuario' => $usuario,
+        ]);
+    }
+
+
    public function editar(usuarios $usuario) {
     return view('usuarios/editar', ['usuario' => $usuario]);
    }
@@ -46,5 +65,10 @@ class UsuariosController extends Controller
     'email' => 'required|max:225',
     ]);
     
-    }
+    }    
+    public function deletar(Usuarios $usuario){
+        $usuario -> delete();
+        return redirect() -> route('usuarios');
+     }
+     
 }

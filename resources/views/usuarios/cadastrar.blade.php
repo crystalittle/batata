@@ -22,12 +22,12 @@
     <br>
     <input type="text" name="email" placeholder="Email" value="{{ old('email') }}">
     <br>
-    <input type="text" name="username" placeholder="Username" value="{{ old('username') }}">
-    <br>
     <input type="password" name="password" placeholder="Senha" value="{{ old('password') }}">
     <br>
+    <input type="text" name="username" placeholder="Username" value="{{ old('username') }}">
+    <br>
     <select name="admin">
-    <option value="null">Selecione um opção</option>
+    <option value="null">Selecione uma opção</option>
     <option value="1">yes</option>
     <option value="0">no</option>
     </select>
