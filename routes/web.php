@@ -82,8 +82,6 @@ Route::get('/usuarios/apagar/{usuario}',
 Route::delete('/usuarios/apagar/{usuario}',
 [UsuariosController::class, 'deletar']);
 
-
-
 Route::get('login', [UsuariosController::class, 'login'])->name('login');
 
 Route::post('login', [UsuariosController::class, 'login'])->name('login');

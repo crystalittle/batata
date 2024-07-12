@@ -12,5 +12,5 @@
 @csrf
 <input type="submit" value="Pode apagar sem medo">
 </form>
-<a href="{{ route('usuario') }}">Cancelar</a>
+<a href="{{ route('usuarios') }}">Cancelar</a>
 @endsection

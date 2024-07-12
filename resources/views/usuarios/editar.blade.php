@@ -22,11 +22,7 @@ placeholder="Email"></p>
 placeholder="Senha"></p>
  <p><input value="{{ old('Username', $usuario->username ?? '') }}" type="text" name="username"
 placeholder="username"></p>
-<select name="admin" value="{{ old('admin', $usuario->email ?? '') }}">
-    <option value="null">Selecione uma opção</option>
-    <option value="1">yes</option>
-    <option value="0">no</option>
-    </select>
+
  <p><input type="submit" value="Editar"></p>
  </form>
 @endsection
