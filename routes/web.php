@@ -60,27 +60,35 @@ Route::get('/jogos/apagar/{jogo}',
 Route::delete('/jogos/apagar/{jogo}',
 [JogosController::class, 'apagar']);
 
-Route::get('/usuarios', 
-[UsuariosController::class, 'index'])
-->name('usuarios');
+// Route::get('/usuarios', 
+// [UsuariosController::class, 'index'])
+// ->name('usuarios');
 
-Route::get('/usuarios/cadastrar', 
+Route::prefix('usuarios')->middleware('auth')->group(function(){
+    Route::get('/', [UsuariosController::class, 'index'])
+    ->name('usuarios');
+
+Route::get('/cadastrar', 
 [UsuariosController::class, 'cadastrar'])
 ->name('usuarios.cadastrar');
 
-Route::post('/usuarios/gravar', 
+Route::post('/gravar', 
 [UsuariosController::class, 'gravar'])
 ->name('usuarios.gravar');
 
-Route::get('/usuarios/editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
+Route::get('/editar/{usuario}', [UsuariosController::class, 'editar'])
+->name('usuarios.editar');
 
-Route::put('/usuarios/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
+Route::put('/editar/{usuario}', [UsuariosController::class, 'editarGravar'])
+->name('usuarios.editarGravar');
 
-Route::get('/usuarios/apagar/{usuario}',
+Route::get('/apagar/{usuario}',
 [UsuariosController::class, 'apagar'])->name('usuarios.apagar');
 
-Route::delete('/usuarios/apagar/{usuario}',
-[UsuariosController::class, 'deletar']);
+Route::delete('/apagar/{usuarios}',
+[UsuariosController::class, 'remove'])
+->name('usuarios.apagar');
+});
 
 Route::get('login', [UsuariosController::class, 'login'])->name('login');
 
