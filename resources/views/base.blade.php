@@ -33,7 +33,7 @@
             </button> opacity-75 hover:opacity-100 active-nav-link text-white-->
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="{{ route('animais') }}" class="flex items-center text-white py-4 pl-6 nav-item">
+            <a href="{{ route('index') }}" class="flex items-center text-white py-4 pl-6 nav-item @if (Request::is('/*')) active-nav-link @else opacity-75 hover:opacity-100 @endif">
                 <i class="fas fa-home mr-3"></i>
                 Inicial
             </a>
@@ -50,7 +50,7 @@
         </nav>
         <a href="#" class="absolute w-full upgrade-btn bottom-0 flex items-center justify-center py-4">
             <i class="fas fa-arrow-circle-up mr-3"></i>
-            Upgrade to Pro!
+            Upgrade to Pro! 
         </a>
     </aside>
 
@@ -145,6 +145,28 @@
             <main class="w-full flex-grow p-6">
                 <h1 class="text-3xl text-black pb-6">@yield('titulo')</h1>
                 <div class="flex flex-wrap">
+
+                <div class="leading-loose min-w-full mb-2">
+                @if(session('erro'))
+                <div class="leading-loose min-w-full mb-2">
+                        @if(session('erro'))
+                        <div class="bg-red-200 border-t-4 border-red-500 rounded-b text-red-800 px-4 py-3 shadow-md" role="alert">
+                            <div class="flex">
+                              <div class="py-1"><i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                              <div>
+                                <p class="font-bold">Erro!</p>
+                                <p class="text-sm">{{ session('erro') }}</p>
+                              </div>
+                            </div>
+                          </div>
+                        @endif
+                    </div>
+                {{ session('erro') }}
+                </div>
+                @endif
+                </div>
+
                 <div class="leading-loose">
                     @yield('conteudo')
                 </div>
