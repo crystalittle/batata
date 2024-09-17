@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AnimalCadastrado;
 use App\Models\Animal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AnimaisController extends Controller
 {
    public function index(){
-       $dados = Animal::all();
+       $dados = Animal::get();
+
+       $animaisPorIdade = Animal::groupBy('idade')
+       ->selectRaw('idade , count(*) as quantidades')
+       ->get();  
+
        return view('animais.index', [
            'animais' => $dados,
        ]);
@@ -23,6 +30,11 @@ class AnimaisController extends Controller
             'nome' => 'required|min:3',
             'idade' => 'required|integer'
         ]);    
+
+        #Animal::create($dados);
+        Mail::to('alguem@batata.com')->send(new AnimalCadastrado);
+        #return redirect()->route('animais);
+
         Animal::create($dados);
         
         return redirect()->route('animais');
